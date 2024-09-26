@@ -178,93 +178,93 @@ from turtle import Terminator
 # и у вас есть 100 .вызвав этот метод у меня и указав вас он должен скопировать ваши деньги мне
 # у вас так же 100 а у меня 200))
 
-# class Bank:
+class Bank:
+
+    def __init__(self, name, balance, balance2):
+        self.name = name
+        self.balance = balance
+        self.balance2 = balance2
+
+    def imya(self):
+        return f"vashe imya: {self.name}"
+
+    def moneyX(self):
+        while True:
+            add_ = int(input("ds: "))
+            add_ += self.balance
+            return f"vash balance: {self.balance} "
+
+    def kill(self):
+        self.balance = 0
+        return f"vash balance obnulen {self.balance}"
+
+    def jeckpot(self):
+        self.balance *= 10
+        return f"vash jeckpot {self.balance}"
+
+    def combo_balance(self):
+        self.balance = self.balance2
+        self.balance += self.balance2
+        self.balance2 = 0
+        return f"vash balannce {self.balance}"
+
+    def fs(self, other):
+        if isinstance(other, Bank):
+            self.balance += other.balance
+            other.balance = 0
+            print(f"Ваш новый баланс: {self._balance}")
+
+
+
+
+
+Mbank = Bank("sa", 100, 100)
+
+print(Mbank.imya())
+print(Mbank.moneyX())
+print(Mbank.jeckpot())
+print(Mbank.combo_balance())
+print(Mbank.fs())
+print(Mbank.kill())
+
+# class InstallmentPlan:
+#     def __init__(self, price):
+#         self.price = price
 #
-#     def __init__(self, name, balance, balance2):
-#         self.name = name
-#         self.balance = balance
-#         self.balance2 = balance2
 #
-#     def imya(self):
-#         return f"vashe imya: {self.name}"
+#     def calculate_total_cost(self):
+#         return self.price
 #
-#     def moneyX(self):
-#         while True:
-#             add_ = int(input("ds: "))
-#             add_ += self.balance
-#             return f"vash balance: {self.balance} "
 #
-#     def kill(self):
-#         self.balance = 0
-#         return f"vash balance obnulen {self.balance}"
+# class FixedInstallment(InstallmentPlan):
+#     def __init__(self, price, months):
+#         super().__init__(price)
+#         self.months = months
 #
-#     def jeckpot(self):
-#         self.balance *= 10
-#         return f"vash jeckpot {self.balance}"
 #
-#     def combo_balance(self):
-#         self.balance = self.balance2
-#         self.balance += self.balance2
-#         self.balance2 = 0
-#         return f"vash balannce {self.balance}"
+#     def calculate_total_cost(self):
+#         return self.price
 #
-#     def fs(self, other):
-#         if isinstance(other, Bank):
-#             self.balance += other.balance
-#             other.balance = 0
-#             print(f"Ваш новый баланс: {self._balance}")
 #
+# class VariableInstallment(InstallmentPlan):
+#     def __init__(self, price, months, interest_rate):
+#         super().__init__(price)
+#         self.months = months
+#         self.interest_rate = interest_rate
+#
+#
+#     def calculate_total_cost(self):
+#         return round(self.price * (1 + self.interest_rate / 100))
+#
+#
+# fixed_plan = FixedInstallment(7000, 12)
+# variable_plan = VariableInstallment(7000, 12, 5)
+#
+#
+# print(f"Общая стоимость для фиксированного плана: {fixed_plan.calculate_total_cost()}")
+# print(f"Общая стоимость для переменного плана: {variable_plan.calculate_total_cost()}")
 #
 #
 #
 #
-# Mbank = Bank("sa", 100, 100)
 #
-# print(Mbank.imya())
-# print(Mbank.moneyX())
-# print(Mbank.jeckpot())
-# print(Mbank.combo_balance())
-# print(Mbank.fs())
-# print(Mbank.kill())
-
-class InstallmentPlan:
-    def __init__(self, price):
-        self.price = price
-
-
-    def calculate_total_cost(self):
-        return self.price
-
-
-class FixedInstallment(InstallmentPlan):
-    def __init__(self, price, months):
-        super().__init__(price)
-        self.months = months
-
-
-    def calculate_total_cost(self):
-        return self.price
-
-
-class VariableInstallment(InstallmentPlan):
-    def __init__(self, price, months, interest_rate):
-        super().__init__(price)
-        self.months = months
-        self.interest_rate = interest_rate
-
-
-    def calculate_total_cost(self):
-        return round(self.price * (1 + self.interest_rate / 100))
-
-
-fixed_plan = FixedInstallment(7000, 12)
-variable_plan = VariableInstallment(7000, 12, 5)
-
-
-print(f"Общая стоимость для фиксированного плана: {fixed_plan.calculate_total_cost()}")
-print(f"Общая стоимость для переменного плана: {variable_plan.calculate_total_cost()}")
-
-
-
-
-
